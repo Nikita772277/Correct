@@ -32,6 +32,10 @@ void Menu()
     {
         GetInfo(check);
     }
+    else
+    {
+        Console.WriteLine($"Выберите пункт меню");
+    }
 }
 void Vowels(string check)//гласные
 {
@@ -47,7 +51,7 @@ void Vowels(string check)//гласные
             }
         }
     }
-    Console.WriteLine($"количество гласных букв: {a}");
+    Console.WriteLine($"Количество гласных букв: {a}");
 }
 void Consonants( string check)//согласные
 {
@@ -83,7 +87,7 @@ void NumberOfCharacters(string check)
         }
         b = false;
     }
-    Console.WriteLine($"количестро букв: {k}");
+    Console.WriteLine($"Количестро букв: {k}");
 }
 void GetInfo(string check)
 {
