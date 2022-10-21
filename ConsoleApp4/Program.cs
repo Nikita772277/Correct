@@ -10,11 +10,12 @@ void GetMenu()
 }
 void Menu()
 {
+    Console.WriteLine($"Для правильной работы программы пожалуйста используйте строчные буквы");
     Console.WriteLine($"Введите одно или несколько слов");
     string check = Console.ReadLine();
     GetMenu();
     string choic = Console.ReadLine();
-    int choice=int.Parse(choic);
+    bool choi=int.TryParse(choic,out var choice);
     Console.WriteLine();
     if (choice == 1)
     {
@@ -39,7 +40,7 @@ void Menu()
 }
 void Vowels(string check)//гласные
 {
-    char[] vowels = new char[] { 'а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е' };
+    char[] vowels = new char[] { 'а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е', 'a', 'e', 'i', 'o', 'u', 'y' };
     int a = 0;
     foreach(char ch in check)
     {
@@ -55,7 +56,7 @@ void Vowels(string check)//гласные
 }
 void Consonants( string check)//согласные
 {
-    char[] consonants = new char[] { 'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с','т','ф','х','ц','ш','щ' };
+    char[] consonants = new char[] { 'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с','т','ф','х','ц','ш','щ','b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z' };
     int character = 0;
     foreach (char consonant in check)
     {
@@ -81,13 +82,14 @@ void NumberOfCharacters(string check)
             if (word == c)
                 b = true;
         }
-        if (b == false)
+        if (b == false && char.IsLetter(word))
         {
             k++;
         }
         b = false;
     }
     Console.WriteLine($"Количестро букв: {k}");
+    Console.WriteLine();
 }
 void GetInfo(string check)
 {
@@ -95,5 +97,9 @@ void GetInfo(string check)
     Consonants(check);
     NumberOfCharacters(check);
 }
+while (true)
+{
 Menu();
+}
+
 
